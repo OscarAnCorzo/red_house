@@ -42,7 +42,7 @@ function ingresar(){
         type: "POST",
         data: datos,
         success: function(response){
-            response=jQuery.parseJSON(response);
+            response = jQuery.parseJSON(response);
 
             if(response.conexion==false){
                 alert("Error en la conexion");

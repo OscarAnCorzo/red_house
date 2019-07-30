@@ -17,7 +17,6 @@
         -ms-user-select: none;
         user-select: none;
       }
-
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -28,15 +27,15 @@
     <title>Inicio</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12" style="background:#52BE80 !important">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" >
+            <ul class="navbar-nav" >
+                <li class="nav-item active" >
+                    <a class="nav-link" href="#" >Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Mis Publicaciones</a>
@@ -55,7 +54,7 @@
             </li>
         </ul>
     </nav>
-    
+    <br>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -68,11 +67,11 @@
             </div>
 
             <div class="container">
-                <label class="row col-md-8" for=""> Filtrar:</label>
+                <h4 class="row col-md-8"> Filtrar:</h4>
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div class="col-md-4">
-                        <select class="form-control">
+                        <select id="fecha" class="form-control">
                             <option>Fecha</option>
                         </select>
                     </div>
@@ -84,6 +83,7 @@
                     </div>
                     <div class="col-md-1"></div>
                 </div>   
+                <br>
                 <div class="row">
                     <div class="col-md-2">
                         
