@@ -8,16 +8,121 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Document</title>
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    
+    <title>Inicio</title>
 </head>
 <body>
-    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Mis Publicaciones</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Publicar</a>
+                </li>
+            </ul>
+        </div>
+        <ul class="nav justify-content-end" >
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Notificaciones</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Salir</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="jumbotron">
+                <div class="container">
+                <h1 class="display-3">Hello, world!</h1>
+                <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+                </div>
+            </div>
 
-    </header>
-    <section>
+            <div class="container">
+                <label class="row col-md-8" for=""> Filtrar:</label>
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4">
+                        <select class="form-control">
+                            <option>Fecha</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">   
+                        <select class="form-control">
+                            <option>Precio</option>
+                        </select>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>   
+                <div class="row">
+                    <div class="col-md-2">
+                        
+                    </div>
+                    <div class="col-md-8">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
 
-    </section>
-    <div id="pie"></div>
+                <div class="row">
+                    <div class="col-md-2">
+                        
+                    </div>
+                    <div class="col-md-8">
+                        <h2>Heading</h2>
+                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                    </div>
+                    <div class="col-md-2">
+                        
+                    </div>
+                </div>
+
+                <hr>
+
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+        <p>&copy; 2019 | Grupo 5 - Ingenieria de Software I | Todos los derechos reservados</p>
+        </div>
+    </footer>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
