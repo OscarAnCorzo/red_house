@@ -4,10 +4,11 @@
 
 <?PHP 
     $respuesta=array();
-
     $id = $_POST['id'];
     $contrasena = $_POST['contrasena'];
-    
+    // $respuesta["consulta"]=FALSE;
+    // $respuesta["conexion"]=FALSE;
+
     $conexion=conectarse();
     if($conexion){
         $respuesta["conexion"]=TRUE;
@@ -24,6 +25,6 @@
         $respuesta["conexion"]=FALSE;
     }
     mysqli_close($conexion);
-    // header('Content-Type: application/json');
+    header('Content-Type: application/json');
     echo json_encode($respuesta);
 ?>

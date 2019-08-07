@@ -42,7 +42,8 @@ function ingresar(){
         type: "POST",
         data: datos,
         success: function(response){
-            response = jQuery.parseJSON(response);
+            // response = jQuery.parseJSON(response);
+            console.log(response);
 
             if(response.conexion==false){
                 alert("Error en la conexion");
@@ -55,8 +56,7 @@ function ingresar(){
             }
         },
         error: function(data){
-            alert("erro");
-            alert("Ocurrio un error interno en el servidor");
+            alert("erroe");
         }
     
     });
