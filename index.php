@@ -90,8 +90,14 @@
                         
                     </div>
                     <div class="col-md-8">
-                        <img src="imagenes/im_perfil.png" alt="foto de perfil" class="im_perfil">
-                        <span class="nombreUsuario">Heading</span>
+                        <div class="imagen">
+                            <img src="imagenes/im_perfil.png" alt="foto de perfil" class="im_perfil">
+                        </div>
+                        <div class="encabezado">
+                            <p class="titulo_publicacion">Heading</p>
+                            <p class="subtitulo_publicacion">Direccion</p>
+                            <p class="subtitulo_publicacion">Negociable</p>
+                        </div>
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
                     </div>

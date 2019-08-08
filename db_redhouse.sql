@@ -19,6 +19,39 @@ USE `redhouse`;
 
 /*Table structure for table `calificacion` */
 
+DROP TABLE IF EXISTS `cliente`;
+
+CREATE TABLE `cliente` (
+  `idCliente` varchar(20) NOT NULL,
+  `nombre` varchar(20) DEFAULT NULL,
+  `apellido` varchar(20) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
+  `correo` varchar(30) DEFAULT NULL,
+  `contrasena` varchar(16) DEFAULT NULL,
+  `fechaCreado` datetime DEFAULT NULL,
+  `fechaActualizado` datetime DEFAULT NULL,
+  PRIMARY KEY (`idCliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `publicacion`;
+
+CREATE TABLE `publicacion` (
+  `idPublicacion` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(30) DEFAULT NULL,
+  `ubicacion` varchar(20) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  `descripcion` varchar(150) DEFAULT NULL,
+  `fechaPublicada` datetime DEFAULT NULL,
+  `estado` char(1) DEFAULT NULL,
+  `negociable` char(1) DEFAULT NULL,
+  `tipoInmueble` varchar(20) DEFAULT NULL,
+  `urlImagen` varchar(100) DEFAULT NULL,
+  `idCliente` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`idPublicacion`),
+  KEY `idCliente` (`idCliente`),
+  CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 DROP TABLE IF EXISTS `calificacion`;
 
 CREATE TABLE `calificacion` (
@@ -37,19 +70,7 @@ CREATE TABLE `calificacion` (
 
 /*Table structure for table `cliente` */
 
-DROP TABLE IF EXISTS `cliente`;
 
-CREATE TABLE `cliente` (
-  `idCliente` varchar(20) NOT NULL,
-  `nombre` varchar(20) DEFAULT NULL,
-  `apellido` varchar(20) DEFAULT NULL,
-  `telefono` varchar(10) DEFAULT NULL,
-  `correo` varchar(30) DEFAULT NULL,
-  `contrasena` varchar(16) DEFAULT NULL,
-  `fechaCreado` datetime DEFAULT NULL,
-  `fechaActualizado` datetime DEFAULT NULL,
-  PRIMARY KEY (`idCliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `cliente` */
 
@@ -74,24 +95,7 @@ CREATE TABLE `comentario` (
 
 /*Table structure for table `publicacion` */
 
-DROP TABLE IF EXISTS `publicacion`;
 
-CREATE TABLE `publicacion` (
-  `idPublicacion` int(11) NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) DEFAULT NULL,
-  `ubicacion` varchar(20) DEFAULT NULL,
-  `precio` int(11) DEFAULT NULL,
-  `descripcion` varchar(150) DEFAULT NULL,
-  `fechaPublicada` datetime DEFAULT NULL,
-  `estado` char(1) DEFAULT NULL,
-  `negociable` char(1) DEFAULT NULL,
-  `tipoInmueble` varchar(20) DEFAULT NULL,
-  `urlImagen` varchar(100) DEFAULT NULL,
-  `idCliente` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`idPublicacion`),
-  KEY `idCliente` (`idCliente`),
-  CONSTRAINT `publicacion_ibfk_1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `publicacion` */
 
