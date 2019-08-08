@@ -24,7 +24,7 @@ function registrarse(){
             }
         },
         error: function(data){
-            alert("Ocurrio un error interno en el servidor");
+            console.log(data);
         }
     
     });
@@ -33,7 +33,7 @@ function registrarse(){
 
 function ingresar(){
     var datos={
-        id: document.getElementById("id").value,
+        idCliente: document.getElementById("idCliente").value,
         contrasena: document.getElementById("contrasena").value
     }
 
@@ -43,8 +43,6 @@ function ingresar(){
         data: datos,
         success: function(response){
             // response = jQuery.parseJSON(response);
-            console.log(response);
-
             if(response.conexion==false){
                 alert("Error en la conexion");
             }else{
@@ -56,7 +54,7 @@ function ingresar(){
             }
         },
         error: function(data){
-            alert("erroe");
+            alert("Error interno en el servidor");
         }
     
     });

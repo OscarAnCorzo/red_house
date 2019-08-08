@@ -17,7 +17,6 @@
     <script src="funciones.js"></script>
     <link rel="stylesheet" href="estilo.css">
 
-
 </head>
 
 <body id="registro">
@@ -26,12 +25,12 @@
             <div class="col-md-6 offset-md-3">
                 <div class="form-group">
                     <label>Identificacion</label>
-                    <input id="id" type="text" class="form-control" aria-describedby="emailHelp"
+                    <input id="idCliente" type="text" class="form-control" aria-describedby="emailHelp"
                         placeholder="Identificacion">
                 </div>
                 <div class="form-group">
                     <label>Contrasena</label>
-                    <input id="contrasena" type="password" class="form-control" id="exampleInputPassword1"
+                    <input id="contrasena" type="password" class="form-control" 
                         placeholder="ejemplo123">
                 </div>
                 <button onclick="ingresar()" class="btn btn-info">Iniciar Sesion</button>
