@@ -3,3 +3,20 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.letra_enca{
+    font-size: 20px;
+    font-weight: bold;
+    color: white !important;
+}
+
+.im_perfil{
+    display: inline-block;
+    width: 8%;
+}
+
+.nombreUsuario{
+    display: inline-block;
+    font-size: 28px;
+    font-weight: bold;
+}

@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilo.css">
 
     <style>
       .bd-placeholder-img {
@@ -27,7 +28,7 @@
     <title>Inicio</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12" style="background:#52BE80 !important">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12" style="background:#4CAF50 !important">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,22 +36,22 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown" >
             <ul class="navbar-nav" >
                 <li class="nav-item active" >
-                    <a class="nav-link" href="#" >Inicio<span class="sr-only">(current)</span></a>
+                    <a class="nav-link letra_enca" href="#" >Inicio<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Mis Publicaciones</a>
+                <li class="nav-item active ">
+                    <a class="nav-link letra_enca" href="#">Mis Publicaciones</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Publicar</a>
+                <li class="nav-item active ">
+                    <a class="nav-link letra_enca" href="#">Publicar</a>
                 </li>
             </ul>
         </div>
         <ul class="nav justify-content-end" >
             <li class="nav-item">
-                <a class="nav-link active" href="#">Notificaciones</a>
+                <a class="nav-link active letra_enca" href="#">Notificaciones</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="#">Salir</a>
+                <a class="nav-link active letra_enca" href="#">Salir</a>
             </li>
         </ul>
     </nav>
@@ -89,7 +90,8 @@
                         
                     </div>
                     <div class="col-md-8">
-                        <h2>Heading</h2>
+                        <img src="imagenes/im_perfil.png" alt="foto de perfil" class="im_perfil">
+                        <span class="nombreUsuario">Heading</span>
                         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                         <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
                     </div>
