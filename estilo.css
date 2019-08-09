@@ -10,16 +10,32 @@
     color: white !important;
 }
 
-.im_perfil{
+/*
+    ##### #
+    #   # #
+    ##### #
+    #
+    #
+
+*/
+.divImagenPerfil{
     display: inline-block;
-    width: 8%;
+    width: 10%;
+    position: relative;
+    bottom: 15px;
 }
 
-.nombreUsuario{
+.encabezadoPublicacion{
     display: inline-block;
-    font-size: 28px;
+    line-height: 15px;
+
+}
+
+.tituloPublicacion{
+    display: inline-block;
+    font-size: 16px;
     font-weight: bold;
-} */
+} 
 
 
 
@@ -46,3 +62,16 @@ padding : 50px 0;
 .banner-text h2{color:#fff; font-weight:600;}
 .banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
 .banner-text p{color:#fff;}
+}
+
+.subtituloPublicacion{
+    display: inline-block;
+    font-size: 12px;
+    color: gray;
+}
+
+.botonPublicacion{
+
+    padding-right: 5%; 
+}
+

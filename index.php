@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
 
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -71,16 +75,20 @@
                 <h4 class="row col-md-8"> Filtrar:</h4>
                 <div class="row">
                     <div class="col-md-1"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <select id="fecha" class="form-control">
                             <option>Fecha</option>
                         </select>
                     </div>
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">   
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3">   
                         <select class="form-control">
                             <option>Precio</option>
                         </select>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">   
+                        <a class="btn btn-secondary botonDetalles" href="#" role="button">Buscar</a>
                     </div>
                     <div class="col-md-1"></div>
                 </div>   
@@ -90,30 +98,61 @@
                         
                     </div>
                     <div class="col-md-8">
-                        <div class="imagen">
-                            <img src="imagenes/im_perfil.png" alt="foto de perfil" class="im_perfil">
+                        <div class="divImagenPerfil">
+                            <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
                         </div>
-                        <div class="encabezado">
-                            <p class="titulo_publicacion">Heading</p>
-                            <p class="subtitulo_publicacion">Direccion</p>
-                            <p class="subtitulo_publicacion">Negociable</p>
+                        <div class="encabezadoPublicacion">
+                            <span class="tituloPublicacion">Titulo de la publicacion</span></br>
+                            <span class="subtituloPublicacion">Direccion</span></br>
+                            <span class="subtituloPublicacion">Negociable</span>
                         </div>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                        <div class="imagenPublicacion">
+                            <img src="imagenes/i1.jpg" alt="foto de perfil" style="width: 100%">
+                        </div>
+                        <div class="descripcionPublicacion">
+                            <p>
+                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+                                <!--<a class="btn btn-secondary botonDetalles" href="#" role="button">Ver Detalles &raquo;</a>-->
+                            </p>
+                        </div>
+                        <div class="botonesPublicacion">
+                            <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
+                            <span ><i class="fas fa-comment-alt"></i> Comentarios</span>
+                        </div>
+                        
                     </div>
                     <div class="col-md-2">
                         
                     </div>
                 </div>
-
+                <hr>
                 <div class="row">
                     <div class="col-md-2">
                         
                     </div>
                     <div class="col-md-8">
-                        <h2>Heading</h2>
-                        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                        <div class="divImagenPerfil">
+                            <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
+                        </div>
+                        <div class="encabezadoPublicacion">
+                            <span class="tituloPublicacion">Titulo de la publicacion</span></br>
+                            <span class="subtituloPublicacion">Direccion</span></br>
+                            <span class="subtituloPublicacion">Negociable</span>
+                        </div>
+                        <div class="imagenPublicacion">
+                            <img src="imagenes/i2.jpg" alt="foto de perfil" style="width: 100%">
+                        </div>
+                        <div class="descripcionPublicacion">
+                            <p>
+                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
+                                <!--<a class="btn btn-secondary botonDetalles" href="#" role="button">Ver Detalles &raquo;</a>-->
+                            </p>
+                        </div>
+                        <div class="botonesPublicacion">
+                            <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
+                            <span ><i class="fas fa-comment-alt"></i> Comentarios</span>
+                        </div>
+                        
                     </div>
                     <div class="col-md-2">
                         
