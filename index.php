@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <? 
+        session_start();
+        include("funciones.php");
+        $conexion = conectar();
+        $sql = "select * from publicacion";
+
+        $r = mysqli_query($conexion,$sql);
+        //$publicaciones = mysqli_fetch_array($r);
+
+    ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -12,7 +24,9 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
-
+    <script id="plantilla" type="text/x-">
+        
+    </script>
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -32,137 +46,102 @@
     <title>Inicio</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light col-md-12" style="background:#4CAF50 !important">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown" >
-            <ul class="navbar-nav" >
-                <li class="nav-item active" >
-                    <a class="nav-link letra_enca" href="#" >Inicio<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active ">
-                    <a class="nav-link letra_enca" href="#">Mis Publicaciones</a>
-                </li>
-                <li class="nav-item active ">
-                    <a class="nav-link letra_enca" href="#">Publicar</a>
-                </li>
-            </ul>
-        </div>
-        <ul class="nav justify-content-end" >
-            <li class="nav-item">
-                <a class="nav-link active letra_enca" href="#">Notificaciones</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active letra_enca" href="#">Salir</a>
-            </li>
-        </ul>
-    </nav>
+    <? encabezado(); ?>
     <br>
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <div class="jumbotron">
+            <div class="jumbotron banner">
                 <div class="container">
-                <h1 class="display-3">Hello, world!</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+                    <h1 class="display-3">Tenemos los mejores inmuebles para ti</h1>
+                    <p>Prestamos los servicios de Arriendos, para la comunidad universitaria de la UIS, además brindamos Asesoría Inmobiliaria y gestionamos el mantenimiento de los inmuebles </p>
+                    <p><a class="btn btn-primary btn-lg" href="#" role="button">Ver mas &raquo;</a></p>
                 </div>
             </div>
+
+            <hr>
 
             <div class="container">
-                <h4 class="row col-md-8"> Filtrar:</h4>
+                <h4 class="row col-md-8"> Buscar por:</h4>
                 <div class="row">
                     <div class="col-md-1"></div>
-                    <div class="col-md-3">
-                        <select id="fecha" class="form-control">
-                            <option>Fecha</option>
+                    <div class="col-md-2">
+                        <label> Tipo de inmueble </label>
+                        <select id="tipo" class="form-control">
+                            <option>Cualquiera</option>
+                            <option value="apartamento">Apartamento</option>
+                            <option value="habitacion">Habitación</option>
                         </select>
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-3">   
-                        <select class="form-control">
-                            <option>Precio</option>
-                        </select>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"> 
+                        <label> Valor minimo </label>
+                        <input id="val_min" type="number" name="val_min" class="form-control"> 
+                    </div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"> 
+                        <label> Valor maximo</label>
+                        <input id="val_max" type="number" name="val_max">
                     </div>
                     <div class="col-md-1"></div>
-                    <div class="col-md-2">   
-                        <a class="btn btn-secondary botonDetalles" href="#" role="button">Buscar</a>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>   
+                </div>
                 <br>
                 <div class="row">
-                    <div class="col-md-2">
-                        
-                    </div>
+                    <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <div class="divImagenPerfil">
-                            <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
-                        </div>
-                        <div class="encabezadoPublicacion">
-                            <span class="tituloPublicacion">Titulo de la publicacion</span></br>
-                            <span class="subtituloPublicacion">Direccion</span></br>
-                            <span class="subtituloPublicacion">Negociable</span>
-                        </div>
-                        <div class="imagenPublicacion">
-                            <img src="imagenes/i1.jpg" alt="foto de perfil" style="width: 100%">
-                        </div>
-                        <div class="descripcionPublicacion">
-                            <p>
-                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
-                                <!--<a class="btn btn-secondary botonDetalles" href="#" role="button">Ver Detalles &raquo;</a>-->
-                            </p>
-                        </div>
-                        <div class="botonesPublicacion">
-                            <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
-                            <span ><i class="fas fa-comment-alt"></i> Comentarios</span>
-                        </div>
-                        
+                        <div class="btn btn-success botonDetalles btn-block" role="button" id="buscar">Buscar</div>
                     </div>
-                    <div class="col-md-2">
-                        
-                    </div>
+                    <div class="col-md-2"></div>
                 </div>
+                <br>
                 <hr>
-                <div class="row">
-                    <div class="col-md-2">
-                        
-                    </div>
-                    <div class="col-md-8">
-                        <div class="divImagenPerfil">
-                            <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
+
+                <div id="lista_publicaciones">
+                <? 
+                    while ($publicacion = mysqli_fetch_array($r)){
+                ?>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <div class="divImagenPerfil">
+                                    <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
+                                </div>
+                                <div class="encabezadoPublicacion">
+                                    <span class="tituloPublicacion"><?echo $publicacion['nombre'];?></span></br>
+                                    <span class="subtituloPublicacion"><? echo $publicacion['ubicacion'];?></span></br>
+                                    <span class="subtituloPublicacion">$<?echo $publicacion['precio'];?> - 
+                                        <?
+                                            if($publicacion['negociable'] == '0') $negociable = 'No negociable';
+                                            else $negociable = 'Negociable';
+
+                                            echo $negociable;
+                                        ;?></span>
+                                </div>
+                                <div class="imagenPublicacion">
+                                    <img <?echo 'src='.$publicacion['urlImagen'];?> alt="foto de perfil" style="width: 100%">
+                                </div>
+                                <div class="descripcionPublicacion">
+                                    <p><?echo $publicacion['descripcion'];?></p>
+                                </div>
+                                <div class="botonesPublicacion">
+                                    <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
+                                    <span ><i class="fas fa-comment-alt"></i> Comentarios</span>
+                                </div>
+                                
+                            </div>
+                            <div class="col-md-2">
+                                
+                            </div>
                         </div>
-                        <div class="encabezadoPublicacion">
-                            <span class="tituloPublicacion">Titulo de la publicacion</span></br>
-                            <span class="subtituloPublicacion">Direccion</span></br>
-                            <span class="subtituloPublicacion">Negociable</span>
-                        </div>
-                        <div class="imagenPublicacion">
-                            <img src="imagenes/i2.jpg" alt="foto de perfil" style="width: 100%">
-                        </div>
-                        <div class="descripcionPublicacion">
-                            <p>
-                                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. 
-                                <!--<a class="btn btn-secondary botonDetalles" href="#" role="button">Ver Detalles &raquo;</a>-->
-                            </p>
-                        </div>
-                        <div class="botonesPublicacion">
-                            <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
-                            <span ><i class="fas fa-comment-alt"></i> Comentarios</span>
-                        </div>
-                        
-                    </div>
-                    <div class="col-md-2">
-                        
-                    </div>
+                        <hr>
+                <?
+                    }
+                ?>
                 </div>
 
-                <hr>
 
             </div>
-        </div>
+         </div>
         <div class="col-md-1"></div>
     </div>
     <footer class="footer mt-auto py-3">
@@ -170,11 +149,10 @@
         <p>&copy; 2019 | Grupo 5 - Ingenieria de Software I | Todos los derechos reservados</p>
         </div>
     </footer>
-    
+
+    <script src="jquery.min.js"></script>
+    <script src="jquery.tmpl.js"></script>
+    <script src="funciones.js"></script>
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

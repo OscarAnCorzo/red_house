@@ -10,6 +10,11 @@
     color: white !important;
 }
 
+.banner{
+    background-image:url('imagenes/banner2.jpg');
+    background-size: cover;
+}
+
 /*
     ##### #
     #   # #
