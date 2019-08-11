@@ -44,7 +44,7 @@
     <!------ Include the above in your HEAD tag ---------->
 
     <section class="login-block">
-        <div class="container">
+        <div class="container cc">
             <div class="row">
                 <div class="col-md-4 login-sec">
                     <h2 class="text-center">Iniciar Sesión</h2>

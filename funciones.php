@@ -1,4 +1,4 @@
-<?
+<?PHP
 	function conectar(){
         if (!($conn = @mysqli_connect("localhost", "root", "", "redhouse", "3306")))
         {
