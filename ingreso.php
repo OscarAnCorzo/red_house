@@ -1,5 +1,7 @@
+
 <?PHP 
-  session_start();
+    include("funciones.php");
+    session_start();
   if (!isset($_SESSION['identificacion']) || isset($_SESSION['contrasena'])){ 
     session_destroy();
   }  
@@ -18,6 +20,7 @@
     <link rel="stylesheet" href="estilo.css">
 
 </head>
+<?PHP encabezado(); ?>
 
 <body id="registro">
     <!-- <div class="container">

@@ -1,5 +1,5 @@
-function registrarse(){
-    var datos={
+function registrarse() {
+    var datos = {
         id: document.getElementById("id").value,
         nombre: document.getElementById("nombre").value,
         apellido: document.getElementById("apellido").value,
@@ -11,55 +11,58 @@ function registrarse(){
         url: "backend_registro.php",
         type: "POST",
         data: datos,
-        success: function(response){
-            response=jQuery.parseJSON(response);
-            if(response.conexion==false){
+        success: function (response) {
+            response = jQuery.parseJSON(response);
+            if (response.conexion == false) {
                 alert("Error en la conexion");
-            }else{
-                if(response.consulta==false){
+            } else {
+                if (response.consulta == false) {
                     alert("Error al insertar el cliente");
-                }else{
+                } else {
                     alert("REGISTRO EXITOSO");
                 }
             }
         },
-        error: function(data){
+        error: function (data) {
             console.log(data);
         }
-    
+
     });
 }
 
 
-function ingresar(){
-    var datos={
+function ingresar() {
+    var datos = {
         idCliente: document.getElementById("idCliente").value,
         contrasena: document.getElementById("contrasena").value
     };
+    var expresion = /^\s*$/;
+    if (datos.idCliente=="" || datos.contrasena=="" || expresion.test(datos.idCliente) || expresion.test(datos.contrasena)) {
+        alert("Llene los campos");
+    } else {
 
-    $.ajax({
-        url: "backend_ingreso.php",
-        type: "POST",
-        data: datos,
-        success: function(response){
-            // response = jQuery.parseJSON(response);
-            if(response.conexion==false){
-                alert("Error en la conexion");
-            }else{
-                if(response.consulta==false){
-                    alert("Error al buscar el cliente");
-                }else{
-                    alert("INICIO DE SESION EXITOSO");
+        $.ajax({
+            url: "backend_ingreso.php",
+            type: "POST",
+            data: datos,
+            success: function (response) {
+                // response = jQuery.parseJSON(response);
+                if (response.conexion == false) {
+                    alert("Error en la conexion");
+                } else {
+                    if (response.consulta == false) {
+                        alert("El usuario no existe");
+                    } else {
+                        alert("INICIO DE SESION EXITOSO");
+                    }
                 }
+            },
+            error: function (data) {
+                alert("Error interno en el servidor");
             }
-        },
-        error: function(data){
-            alert("Error interno en el servidor");
-        }
-    
-    });
 
-    return false;
+        });
+    }
 }
 
 /*
