@@ -2,9 +2,9 @@
 <?PHP 
     include("funciones.php");
     session_start();
-  if (!isset($_SESSION['identificacion']) || isset($_SESSION['contrasena'])){ 
-    session_destroy();
-  }  
+    if (isset($_SESSION['identificacion']) || isset($_SESSION['contrasena'])){ 
+        session_destroy();
+    }  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +22,7 @@
 </head>
 <?PHP encabezado(); ?>
 
-<body id="registro">
+<body id="ingreso">
     <!-- <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">

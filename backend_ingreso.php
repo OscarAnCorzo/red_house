@@ -1,3 +1,6 @@
+<?PHP     
+    require_once 'conexion_bd.php';
+?>
 <?PHP 
     require_once 'conexion_bd.php';
 ?>
@@ -15,6 +18,9 @@
         $numero=mysqli_num_rows($result);
         if($numero>0){
             $respuesta["consulta"]=TRUE;
+            session_start();
+            $_SESSION['identificacion']=$idCliente;
+            $_SESSION['contrasena']=$contrasena;
         }else{
             $respuesta["consulta"]=FALSE;
         }
