@@ -20,7 +20,13 @@
     <link rel="stylesheet" href="estilo.css">
 
 </head>
-<?PHP encabezado(); ?>
+    <?PHP 
+        if (isset($_SESSION['identificacion']) || isset($_SESSION['contrasena'])){ 
+            encabezadoCliente();
+        }  else{
+            encabezado();
+        }
+    ?>
 
 <body id="ingreso">
 

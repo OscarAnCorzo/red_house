@@ -46,7 +46,13 @@
     <title>Inicio</title>
 </head>
 <body>
-    <?PHP encabezado(); ?>
+    <?PHP 
+        if (isset($_SESSION['identificacion']) || isset($_SESSION['contrasena'])){ 
+            encabezadoCliente();
+        }  else{
+            encabezado();
+        }
+    ?>
     <br>
     <div class="container-fluid">
         <div class="row">

@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown" >
             <ul class="navbar-nav" >
                 <li class="nav-item active" >
-                    <a class="nav-link letra_enca" href="#" >Inicio<span class="sr-only">(current)</span></a>
+                    <a class="nav-link letra_enca" href="index.php" >Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active ">
                     <a class="nav-link letra_enca" href="#">Servicios</a>
@@ -41,9 +41,6 @@
         <ul class="nav justify-content-end" >
             <li class="nav-item">
                 <a class="nav-link active letra_enca" href="ingreso.php">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active letra_enca" href="registro.php">Registrarme</a>
             </li>
         </ul>
     </nav>';
@@ -58,13 +55,13 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown" >
             <ul class="navbar-nav" >
                 <li class="nav-item active" >
-                    <a class="nav-link letra_enca" href="#" >Inicio<span class="sr-only">(current)</span></a>
+                    <a class="nav-link letra_enca" href="index.php" >Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active ">
                     <a class="nav-link letra_enca" href="#">Mis Publicaciones</a>
                 </li>
                 <li class="nav-item active ">
-                    <a class="nav-link letra_enca" href="#">Publicar</a>
+                    <a class="nav-link letra_enca" href="publicar_oferta.php">Publicar</a>
                 </li>
             </ul>
         </div>
@@ -73,7 +70,7 @@
                 <a class="nav-link active letra_enca" href="#">Notificaciones</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active letra_enca" href="#">Salir</a>
+                <a class="nav-link active letra_enca" href="cerrar_sesion.php">Salir</a>
             </li>
         </ul>
     </nav>';

@@ -63,7 +63,7 @@
 
 
                     <div class="form-check">
-                        <button onclick="ingresar()" class="btn btn-login float-right">Submit</button>
+                        <button onclick="ingresar()" class="btn btn-login float-right">Iniciar Sesion</button>
                     </div>
 
                 </div>

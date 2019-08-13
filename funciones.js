@@ -53,7 +53,7 @@ function ingresar() {
                     if (response.consulta == false) {
                         alert("El usuario no existe");
                     } else {
-                        alert("INICIO DE SESION EXITOSO");
+                        location.href="index.php";                        
                     }
                 }
             },
