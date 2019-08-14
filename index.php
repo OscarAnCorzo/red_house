@@ -110,10 +110,10 @@
                                         <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
                                     </div>
                                     <div class="encabezadoPublicacion">
-                                        <span class="tituloPublicacion"><?echo $publicacion['nombre'];?></span></br>
-                                        <span class="subtituloPublicacion"><? echo $publicacion['ubicacion'];?></span></br>
-                                        <span class="subtituloPublicacion">$<?echo $publicacion['precio'];?> - 
-                                            <?
+                                        <span class="tituloPublicacion"><?PHP echo $publicacion['nombre'];?></span></br>
+                                        <span class="subtituloPublicacion"><?PHP  echo $publicacion['ubicacion'];?></span></br>
+                                        <span class="subtituloPublicacion">$<?PHP echo $publicacion['precio'];?> - 
+                                            <?PHP 
                                                 if($publicacion['negociable'] == '0') $negociable = 'No negociable';
                                                 else $negociable = 'Negociable';
 
@@ -121,10 +121,10 @@
                                             ;?></span>
                                     </div>
                                     <div class="imagenPublicacion">
-                                        <img <?echo 'src='.$publicacion['urlImagen'];?> alt="foto de perfil" style="width: 100%">
+                                        <img <?PHP echo 'src='.$publicacion['urlImagen'];?> alt="foto de perfil" style="width: 100%">
                                     </div>
                                     <div class="descripcionPublicacion">
-                                        <p><?echo $publicacion['descripcion'];?></p>
+                                        <p><?PHP echo $publicacion['descripcion'];?></p>
                                     </div>
                                     <div class="botonesPublicacion">
                                         <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
