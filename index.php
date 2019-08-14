@@ -47,11 +47,7 @@
 </head>
 <body>
     <?PHP 
-        if (isset($_SESSION['identificacion']) || isset($_SESSION['contrasena'])){ 
-            encabezadoCliente();
-        }  else{
-            encabezado();
-        }
+        encabezado();
     ?>
     <br>
     <div class="container-fluid">
