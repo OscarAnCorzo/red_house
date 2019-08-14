@@ -43,26 +43,13 @@
         $result=mysqli_query($conexion,$consulta);
         $numero=mysqli_num_rows($result);
         if($numero>0){
-            $respuest=array();
-            $i=1;
-            $temporal = new stdClass();
-            while($p = mysqli_fetch_array($result)){
-                $temporal->i = array("idPublicacion"=> $p["idPublicacion"], "nombre" => $p["nombre"]);
-                
-                /*$temporal->nombre = $p["nombre"];
-                $temporal->ubicacion = $p["ubicacion"];
-                $temporal->precio = $p["precio"];
-                $temporal->descripcion = $p["descripcion"];
-                $temporal->fechaPublicada = $p["fechaPublicada"];
-                $temporal->estado = $p["estado"];
-                $temporal->negociable = $p["negociable"];
-                $temporal->tipoInmueble = $p["tipoInmueble"];
-                $temporal->urlImagen = $p["urlImagen"];
-                $temporal->idCliente = $p["idCliente"];*/
-                
-                //$respuest=array_push($respuest,$temporal);
-                $i=1+$i;
+            $respuesta['publicaciones'] = array();
+            $i=0;
+            while($p = mysqli_fetch_assoc($result)){
+                $respuesta['publicaciones'][$i] = $p;
+                $i++;
             }
+
             $respuesta["consulta"]=TRUE;
         }else{
             $respuesta["consulta"]=FALSE;
@@ -74,6 +61,6 @@
 
     mysqli_close($conexion);
     header('Content-Type: application/json');
-    echo json_encode($temporal);
+    echo json_encode($respuesta);
 
 ?>

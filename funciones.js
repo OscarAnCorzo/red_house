@@ -80,21 +80,15 @@ $('#buscar').on("click",function(){
         data: dato,
         success: function(response){
             console.log(response);
-            if(response.conexion==false){
-                alert("Error en la conexion");
-            }else{
-                if(response.consulta==false){
-                    alert("Error al buscar el cliente");
-                }else{
-                    alert("INICIO DE SESION EXITOSO");
-                }
+            for (var i = 0; i < Object.keys(response.publicaciones).length; i++) {
+                $('#plantilla').tmpl(response.publicaciones[i]).appendTo('#lista_publicaciones');
             }
         },
         error: function(data){
             alert("Error interno en el servidor");
         }
     });
-    //$('#plantilla').tmpl(datos).appendTo('#l_contactos');
+    
 
 });
 

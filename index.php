@@ -24,8 +24,35 @@
     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
-    <script id="plantilla" type="text/x-">
-        
+    <script id="plantilla" type="text/x-jquery-tmpl">
+        <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div class="divImagenPerfil">
+                                        <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
+                                    </div>
+                                    <div class="encabezadoPublicacion">
+                                        <span class="tituloPublicacion">${nombre}</span></br>
+                                        <span class="subtituloPublicacion">${ubicacion}</span></br>
+                                        <span class="subtituloPublicacion">${precio} - ${negociable}</span>
+                                    </div>
+                                    <div class="imagenPublicacion">
+                                        <img src=${urlImagen} alt="foto de perfil" style="width: 100%">
+                                    </div>
+                                    <div class="descripcionPublicacion">
+                                        <p>${descripcion}</p>
+                                    </div>
+                                    <div class="botonesPublicacion">
+                                        <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
+                                        <span ><i class="fas fa-comment-alt"></i> Comentarios</span>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-2">
+                                    
+                                </div>
+                            </div>
+                            <hr>
     </script>
     <style>
       .bd-placeholder-img {
@@ -85,7 +112,7 @@
                         <div class="col-md-2"></div>
                         <div class="col-md-2"> 
                             <label> Valor maximo</label>
-                            <input id="val_max" type="number" name="val_max">
+                            <input id="val_max" type="number" name="val_max" class="form-control">
                         </div>
                         <div class="col-md-1"></div>
                     </div>
