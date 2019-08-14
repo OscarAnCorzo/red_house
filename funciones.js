@@ -65,7 +65,7 @@ function ingresar() {
     }
 }
 
-/*
+
 $('#buscar').on("click",function(){
     $('#lista_publicaciones').html("");
 
@@ -96,7 +96,7 @@ $('#buscar').on("click",function(){
     });
     //$('#plantilla').tmpl(datos).appendTo('#l_contactos');
 
-});*/
+});
 
 function publicar_oferta() {
     var datos = {

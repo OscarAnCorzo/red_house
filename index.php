@@ -49,12 +49,13 @@
     <?PHP 
         encabezado();
     ?>
-    <br>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="jumbotron banner">
+            <div class="col-md-10 fondo">
+            <br>
+                <div class="jumbotron banner col-md-12">
                     <div class="container">
                         <h1 class="display-3 texto-banner">Tenemos los mejores inmuebles para ti</h1>
                         <p class="texto-banner">Prestamos los servicios de Arriendos, para la comunidad universitaria de la UIS, además brindamos Asesoría Inmobiliaria y gestionamos el mantenimiento de los inmuebles </p>
@@ -65,7 +66,7 @@
                 <hr>
 
                 <div class="container">
-                    <h4 class="row col-md-8"> Buscar por:</h4>
+                    <h4 class="row col-md-8 fondo"> Buscar por:</h4>
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-2">
@@ -100,7 +101,7 @@
                     <hr>
 
                     <div id="lista_publicaciones">
-                    <? 
+                    <?PHP
                         while ($publicacion = mysqli_fetch_array($r)){
                     ?>
                             <div class="row">
@@ -137,7 +138,7 @@
                                 </div>
                             </div>
                             <hr>
-                    <?
+                    <?PHP
                         }
                     ?>
                     </div>
@@ -148,7 +149,7 @@
             <div class="col-md-1"></div>
         </div>
     </div>
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 fondo">
         <div class="container">
         <p>&copy; 2019 | Grupo 5 - Ingenieria de Software I | Todos los derechos reservados</p>
         </div>

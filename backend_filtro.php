@@ -43,12 +43,25 @@
         $result=mysqli_query($conexion,$consulta);
         $numero=mysqli_num_rows($result);
         if($numero>0){
-            $respuesta["publicaciones"]=[];
+            $respuest=array();
+            $i=1;
+            $temporal = new stdClass();
             while($p = mysqli_fetch_array($result)){
-                $temporal = {"idPublicacion":$p["idPublicacion"],"nombre":$p["nombre"],"ubicacion":$p["ubicacion"],"precio":$p["precio"],"descripcion":$p["descripcion"],"fechaPublicada":$p["fechaPublicada"],"estado":$p["estado"],"negociable":$p["negociable"],"tipoInmueble":$p["tipoInmueble"],"urlImagen":$p["urlImagen"],"idCliente":$p["idCliente"]};
-
-
-                $respuesta["publicaciones"]=array_push($respuesta["publicaciones"],$temporal);
+                $temporal->i = array("idPublicacion"=> $p["idPublicacion"], "nombre" => $p["nombre"]);
+                
+                /*$temporal->nombre = $p["nombre"];
+                $temporal->ubicacion = $p["ubicacion"];
+                $temporal->precio = $p["precio"];
+                $temporal->descripcion = $p["descripcion"];
+                $temporal->fechaPublicada = $p["fechaPublicada"];
+                $temporal->estado = $p["estado"];
+                $temporal->negociable = $p["negociable"];
+                $temporal->tipoInmueble = $p["tipoInmueble"];
+                $temporal->urlImagen = $p["urlImagen"];
+                $temporal->idCliente = $p["idCliente"];*/
+                
+                //$respuest=array_push($respuest,$temporal);
+                $i=1+$i;
             }
             $respuesta["consulta"]=TRUE;
         }else{
@@ -57,10 +70,10 @@
     }else{
         $respuesta["conexion"]=FALSE;
     }
-            $respuesta["cosa"]=$consulta;
+    $respuesta["cosa"]=$consulta;
 
     mysqli_close($conexion);
     header('Content-Type: application/json');
-    echo json_encode($respuesta);
+    echo json_encode($temporal);
 
 ?>

@@ -21,21 +21,11 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `redhouse`
 --
-
+create database `redhouse`;
+use `redhouse`;
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `calificacion`
---
 
-CREATE TABLE `calificacion` (
-  `idCalificacion` int(11) NOT NULL,
-  `valor` int(11) DEFAULT NULL,
-  `idPublicacion` int(11) DEFAULT NULL,
-  `idCliente` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `cliente`
@@ -51,6 +41,36 @@ CREATE TABLE `cliente` (
   `fechaCreado` datetime DEFAULT NULL,
   `fechaActualizado` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+CREATE TABLE `publicacion` (
+  `idPublicacion` int(11) NOT NULL,
+  `nombre` varchar(30) DEFAULT NULL,
+  `ubicacion` varchar(20) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  `descripcion` varchar(150) DEFAULT NULL,
+  `fechaPublicada` datetime DEFAULT NULL,
+  `estado` char(1) DEFAULT NULL,
+  `negociable` char(1) DEFAULT NULL,
+  `tipoInmueble` varchar(20) DEFAULT NULL,
+  `urlImagen` varchar(100) DEFAULT NULL,
+  `idCliente` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Estructura de tabla para la tabla `calificacion`
+--
+
+CREATE TABLE `calificacion` (
+  `idCalificacion` int(11) NOT NULL,
+  `valor` int(11) DEFAULT NULL,
+  `idPublicacion` int(11) DEFAULT NULL,
+  `idCliente` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -85,19 +105,7 @@ CREATE TABLE `comentario` (
 -- Estructura de tabla para la tabla `publicacion`
 --
 
-CREATE TABLE `publicacion` (
-  `idPublicacion` int(11) NOT NULL,
-  `nombre` varchar(30) DEFAULT NULL,
-  `ubicacion` varchar(20) DEFAULT NULL,
-  `precio` int(11) DEFAULT NULL,
-  `descripcion` varchar(150) DEFAULT NULL,
-  `fechaPublicada` datetime DEFAULT NULL,
-  `estado` char(1) DEFAULT NULL,
-  `negociable` char(1) DEFAULT NULL,
-  `tipoInmueble` varchar(20) DEFAULT NULL,
-  `urlImagen` varchar(100) DEFAULT NULL,
-  `idCliente` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 --
 -- Volcado de datos para la tabla `publicacion`
