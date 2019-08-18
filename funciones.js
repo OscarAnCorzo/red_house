@@ -114,7 +114,6 @@ function publicar_oferta() {
             type: "POST",
             data: datos,
             success: function (response) {
-                console.log(response);
 
                 // response = jQuery.parseJSON(response);
                 if(response.conexion && response.consulta){
@@ -133,10 +132,44 @@ function publicar_oferta() {
                 }
             },
             error: function (data) {
-                console.log(data);
                 alert("Error interno en el servidor");
             }
 
         });
     }
+}
+
+
+function ver_perfil() {
+    var datos = {
+        //TENGO QUE OBTENER EL idCliente
+    };
+
+        $.ajax({
+            url: "backend_ver_perfil.php",
+            type: "POST",
+            data: datos,
+            success: function (response) {
+                // response = jQuery.parseJSON(response);
+                if(response.conexion && response.consulta){
+                    if (response.conexion == false) {
+                        alert("Error en la conexion");
+                    } else {
+                        if (response.consulta == false) {
+                            alert("Error, el cliente no existe");
+                        } else {
+                            //AQUI DEBO DESPLEGAR EL MODAL DEL CLIENTE
+
+                        }
+                    }
+                }else{
+                    alert("Error del lado del servidor");
+
+                }
+            },
+            error: function (data) {
+                alert("Error interno en el servidor");
+            }
+
+        });
 }
