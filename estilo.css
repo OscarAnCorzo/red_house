@@ -35,7 +35,7 @@
 }
 
 .contenidoPublicacion:hover{
-    transform: scale(1);
+    transform: scale(1.05);
 }
 
 .divImagenPerfil{
@@ -44,6 +44,10 @@
     position: relative;
     bottom: 10px;
     border-radius: 50%;
+}
+
+.divImagenPerfil:hover{
+    transform: scale(1.05);
 }
 
 .encabezadoPublicacion{
@@ -77,6 +81,10 @@
     width: 90%;
     margin-left:auto;
     margin-right:auto;
+}
+
+.imagenPublicacion:hover{
+    transform: scale(1.05);
 }
 
 .botonPublicacion{
