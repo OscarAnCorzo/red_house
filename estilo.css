@@ -34,6 +34,10 @@
     box-shadow: 0 0 4px 3px grey;
 }
 
+.contenidoPublicacion:hover{
+    transform: scale(1);
+}
+
 .divImagenPerfil{
     display: inline-block;
     width: 12%;

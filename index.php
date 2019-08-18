@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <?php
-        session_start();
-        include("funciones.php");
-        $conexion = conectar();
-        $sql = "select * from publicacion";
+    session_start();
+    include("funciones.php");
+    $conexion = conectar();
+    $sql = "select * from publicacion";
 
-        $r = mysqli_query($conexion,$sql);
-        //$publicaciones = mysqli_fetch_array($r);
+    $r = mysqli_query($conexion, $sql);
+    //$publicaciones = mysqli_fetch_array($r);
 
     ?>
 
@@ -21,26 +22,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
 
-    
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
     <script id="plantilla" type="text/x-jquery-tmpl">
         <div class="row">
                                 <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                                <div class="col-md-8 contenidoPublicacion">
                                     <div class="divImagenPerfil">
-                                        <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
+                                        <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%; border-radius: 50%;">
                                     </div>
                                     <div class="encabezadoPublicacion">
                                         <span class="tituloPublicacion">${nombre}</span></br>
                                         <span class="subtituloPublicacion">${ubicacion}</span></br>
-                                        <span class="subtituloPublicacion">${precio} - ${negociable}</span>
+                                    </div>
+                                    <div class="divPrecio">
+                                        <span class="tituloPublicacion" style="color:#4CAF50;font-size:25px;">$${precio}</span> - <span class="subtituloPublicacion">
+                                        
+                                        ${negociable}
+                                        </span>
                                     </div>
                                     <div class="imagenPublicacion">
-                                        <img src=${urlImagen} alt="foto de perfil" style="width: 100%">
+                                        <img src=${urlImagen} alt="Publicacion" style="width: 100%">
                                     </div>
                                     <div class="descripcionPublicacion">
-                                        <p>${descripcion}</p>
+                                        <p>${descripcion} &nbsp <button type="button" class="btn btn-primary"style="padding-top:1%;">Ver mas...</button></p>
                                     </div>
                                     <div class="botonesPublicacion">
                                         <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
@@ -52,36 +58,38 @@
                                     
                                 </div>
                             </div>
-                            <hr>
+                            <br>
     </script>
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
-      }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
     </style>
-    
+
     <title>Inicio</title>
 </head>
+
 <body>
-    <?PHP 
-        encabezado();
+    <?PHP
+    encabezado();
     ?>
-    
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10 fondo">
-            <br>
+                <br>
                 <div class="jumbotron banner col-md-12">
                     <div class="container">
                         <h1 class="display-3 texto-banner">Tenemos los mejores inmuebles para ti</h1>
@@ -105,12 +113,12 @@
                             </select>
                         </div>
                         <div class="col-md-2"></div>
-                        <div class="col-md-2"> 
+                        <div class="col-md-2">
                             <label> Valor minimo </label>
-                            <input id="val_min" type="number" name="val_min" class="form-control"> 
+                            <input id="val_min" type="number" name="val_min" class="form-control">
                         </div>
                         <div class="col-md-2"></div>
-                        <div class="col-md-2"> 
+                        <div class="col-md-2">
                             <label> Valor maximo</label>
                             <input id="val_max" type="number" name="val_max" class="form-control">
                         </div>
@@ -128,49 +136,48 @@
                     <hr>
 
                     <div id="lista_publicaciones">
-                    <?PHP
-                        while ($publicacion = mysqli_fetch_array($r)){
-                    ?>
-                            <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8 contenidoPublicacion">
-                                    <div class="divImagenPerfil">
-                                        <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%; border-radius: 50%;">
-                                    </div>
-                                    <div class="encabezadoPublicacion">
-                                        <span class="tituloPublicacion"><?PHP echo $publicacion['nombre'];?></span></br>
-                                        <span class="subtituloPublicacion"><?PHP  echo $publicacion['ubicacion'];?></span></br>
-                                    </div>
-                                    <div class="divPrecio">
-                                        <span class="tituloPublicacion" style="color:#4CAF50;font-size:25px;">$<?PHP echo $publicacion['precio'];?></span> - <span class="subtituloPublicacion">
-                                            <?PHP 
-                                                if($publicacion['negociable'] == '0') $negociable = 'No negociable';
-                                                else $negociable = 'Negociable';
+                        <?PHP
+                        while ($publicacion = mysqli_fetch_array($r)) {
+                            ?>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8 contenidoPublicacion">
+                                <div class="divImagenPerfil">
+                                    <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%; border-radius: 50%;">
+                                </div>
+                                <div class="encabezadoPublicacion">
+                                    <span class="tituloPublicacion"><?PHP echo $publicacion['nombre']; ?></span></br>
+                                    <span class="subtituloPublicacion"><?PHP echo $publicacion['ubicacion']; ?></span></br>
+                                </div>
+                                <div class="divPrecio">
+                                    <span class="tituloPublicacion" style="color:#4CAF50;font-size:25px;">$<?PHP echo $publicacion['precio']; ?></span> - <span class="subtituloPublicacion">
+                                        <?PHP
+                                            if ($publicacion['negociable'] == '0') $negociable = 'No negociable';
+                                            else $negociable = 'Negociable';
 
-                                                echo $negociable;
-                                            ;?>
-                                        </span>
-                                    </div>
-                                    <div class="imagenPublicacion">
-                                        <img <?PHP echo 'src='.$publicacion['urlImagen'];?> alt="Publicacion" style="width: 100%">
-                                    </div>
-                                    <div class="descripcionPublicacion">
-                                        <p><?PHP echo $publicacion['descripcion'];?> &nbsp <button type="button" class="btn btn-primary"style="padding-top:1%;">Ver mas...</button></p>
-                                    </div>
-                                    <div class="botonesPublicacion">
-                                        <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
-                                        <span ><i class="fas fa-comment-alt"></i> Comentarios</span>
-                                    </div>
-                                    
+                                            echo $negociable; ?>
+                                    </span>
                                 </div>
-                                <div class="col-md-2">
-                                    
+                                <div class="imagenPublicacion">
+                                    <img <?PHP echo 'src=' . $publicacion['urlImagen']; ?> alt="Publicacion" style="width: 100%">
                                 </div>
+                                <div class="descripcionPublicacion">
+                                    <p><?PHP echo $publicacion['descripcion']; ?> &nbsp <button type="button" class="btn btn-primary" style="padding-top:1%;">Ver mas...</button></p>
+                                </div>
+                                <div class="botonesPublicacion">
+                                    <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
+                                    <span><i class="fas fa-comment-alt"></i> Comentarios</span>
+                                </div>
+
                             </div>
-                            <br>
-                    <?PHP
+                            <div class="col-md-2">
+
+                            </div>
+                        </div>
+                        <br>
+                        <?PHP
                         }
-                    ?>
+                        ?>
                     </div>
 
 
@@ -181,7 +188,7 @@
     </div>
     <footer class="footer mt-auto py-3 fondo">
         <div class="container">
-        <p>&copy; 2019 | Grupo 5 - Ingenieria de Software I | Todos los derechos reservados</p>
+            <p>&copy; 2019 | Grupo 5 - Ingenieria de Software I | Todos los derechos reservados</p>
         </div>
     </footer>
 
@@ -190,4 +197,5 @@
     <script src="funciones.js"></script>
     <!-- Optional JavaScript -->
 </body>
+
 </html>
