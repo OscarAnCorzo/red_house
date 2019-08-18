@@ -133,26 +133,29 @@
                     ?>
                             <div class="row">
                                 <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                                <div class="col-md-8 contenidoPublicacion">
                                     <div class="divImagenPerfil">
-                                        <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%">
+                                        <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%; border-radius: 50%;">
                                     </div>
                                     <div class="encabezadoPublicacion">
                                         <span class="tituloPublicacion"><?PHP echo $publicacion['nombre'];?></span></br>
                                         <span class="subtituloPublicacion"><?PHP  echo $publicacion['ubicacion'];?></span></br>
-                                        <span class="subtituloPublicacion">$<?PHP echo $publicacion['precio'];?> - 
+                                    </div>
+                                    <div class="divPrecio">
+                                        <span class="tituloPublicacion" style="color:#4CAF50;font-size:25px;">$<?PHP echo $publicacion['precio'];?></span> - <span class="subtituloPublicacion">
                                             <?PHP 
                                                 if($publicacion['negociable'] == '0') $negociable = 'No negociable';
                                                 else $negociable = 'Negociable';
 
                                                 echo $negociable;
-                                            ;?></span>
+                                            ;?>
+                                        </span>
                                     </div>
                                     <div class="imagenPublicacion">
-                                        <img <?PHP echo 'src='.$publicacion['urlImagen'];?> alt="foto de perfil" style="width: 100%">
+                                        <img <?PHP echo 'src='.$publicacion['urlImagen'];?> alt="Publicacion" style="width: 100%">
                                     </div>
                                     <div class="descripcionPublicacion">
-                                        <p><?PHP echo $publicacion['descripcion'];?></p>
+                                        <p><?PHP echo $publicacion['descripcion'];?> &nbsp <button type="button" class="btn btn-primary"style="padding-top:1%;">Ver mas...</button></p>
                                     </div>
                                     <div class="botonesPublicacion">
                                         <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
@@ -164,7 +167,7 @@
                                     
                                 </div>
                             </div>
-                            <hr>
+                            <br>
                     <?PHP
                         }
                     ?>
