@@ -53,7 +53,7 @@ function ingresar() {
                     if (response.consulta == false) {
                         alert("El usuario no existe");
                     } else {
-                        location.href="index.php";                        
+                        location.href = "index.php";
                     }
                 }
             },
@@ -66,29 +66,29 @@ function ingresar() {
 }
 
 
-$('#buscar').on("click",function(){
+$('#buscar').on("click", function () {
     $('#lista_publicaciones').html("");
 
     var dato = {
         tipo: $('#tipo').val(),
-        val_min : $('#val_min').val(),
-        val_max : $('#val_max').val()
+        val_min: $('#val_min').val(),
+        val_max: $('#val_max').val()
     };
     $.ajax({
         url: "backend_filtro.php",
         type: "post",
         data: dato,
-        success: function(response){
+        success: function (response) {
             console.log(response);
             for (var i = 0; i < Object.keys(response.publicaciones).length; i++) {
                 $('#plantilla').tmpl(response.publicaciones[i]).appendTo('#lista_publicaciones');
             }
         },
-        error: function(data){
+        error: function (data) {
             alert("Error interno en el servidor");
         }
     });
-    
+
 
 });
 
@@ -104,8 +104,8 @@ function publicar_oferta() {
         urlImagen: document.getElementById("urlImagen").value
     };
     var expresion = /^\s*$/;
-    if (datos.nombre == "" || datos.ubicacion == "" || datos.precio == "" || datos.descripcion == "" || datos.estado == "" || datos.negociable == "" || datos.tipoInmueble == "" || datos.urlImagen == "" 
-    || expresion.test(datos.nombre) || expresion.test(datos.ubicacion) || expresion.test(datos.precio) || expresion.test(datos.descripcion) || expresion.test(datos.estado) || expresion.test(datos.negociable) || expresion.test(datos.tipoInmueble) || expresion.test(datos.urlImagen)) {
+    if (datos.nombre == "" || datos.ubicacion == "" || datos.precio == "" || datos.descripcion == "" || datos.estado == "" || datos.negociable == "" || datos.tipoInmueble == "" || datos.urlImagen == ""
+        || expresion.test(datos.nombre) || expresion.test(datos.ubicacion) || expresion.test(datos.precio) || expresion.test(datos.descripcion) || expresion.test(datos.estado) || expresion.test(datos.negociable) || expresion.test(datos.tipoInmueble) || expresion.test(datos.urlImagen)) {
         alert("Llene los campos");
     } else {
 
@@ -116,7 +116,7 @@ function publicar_oferta() {
             success: function (response) {
 
                 // response = jQuery.parseJSON(response);
-                if(response.conexion && response.consulta){
+                if (response.conexion && response.consulta) {
                     if (response.conexion == false) {
                         alert("Error en la conexion");
                     } else {
@@ -126,7 +126,7 @@ function publicar_oferta() {
                             alert("Publicacion creada exitosamente");
                         }
                     }
-                }else{
+                } else {
                     alert("Error del lado del servidor");
 
                 }
@@ -140,36 +140,41 @@ function publicar_oferta() {
 }
 
 
-function ver_perfil() {
+
+function ver_perfil_cliente(e) {
     var datos = {
-        //TENGO QUE OBTENER EL idCliente
+        idCliente: $(e).parent().parent().find("#idCliente").val()
     };
-
-        $.ajax({
-            url: "backend_ver_perfil.php",
-            type: "POST",
-            data: datos,
-            success: function (response) {
-                // response = jQuery.parseJSON(response);
-                if(response.conexion && response.consulta){
-                    if (response.conexion == false) {
-                        alert("Error en la conexion");
+    $.ajax({
+        url: "backend_ver_perfil.php",
+        type: "POST",
+        data: datos,
+        success: function (response) {
+            // response = jQuery.parseJSON(response);
+            if (response.conexion && response.consulta) {
+                if (response.conexion == false) {
+                    alert("Error en la conexion");
+                } else {
+                    if (response.consulta == false) {
+                        alert("Error, el cliente no existe");
                     } else {
-                        if (response.consulta == false) {
-                            alert("Error, el cliente no existe");
-                        } else {
-                            //AQUI DEBO DESPLEGAR EL MODAL DEL CLIENTE
-
-                        }
+                        document.getElementById("idCliente_modal").innerHTML=response.cliente.idCliente;
+                        document.getElementById("nombre").innerHTML=response.cliente.nombre;
+                        document.getElementById("apellido").innerHTML=response.cliente.apellido;
+                        document.getElementById("telefono").innerHTML=response.cliente.telefono;
+                        document.getElementById("correo").innerHTML=response.cliente.correo;
+                        
                     }
-                }else{
-                    alert("Error del lado del servidor");
-
                 }
-            },
-            error: function (data) {
-                alert("Error interno en el servidor");
-            }
+            } else {
+                alert("Error del lado del servidor");
 
-        });
+            }
+        },
+        error: function (data) {
+            alert("Error interno en el servidor");
+        }
+
+    });
 }
+

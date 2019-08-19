@@ -1,12 +1,11 @@
 <?PHP 
-    require_once 'validar_sesion.php';
     include 'conexion_bd.php';
 ?>
-
+ 
 <?PHP 
     $respuesta=array();
 
-    $idCliente=$_GET["idCliente"];
+    $idCliente=$_POST["idCliente"];
    
     $conexion=conectarse();
     if($conexion){

@@ -19,7 +19,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="estilo.css">
 
 
@@ -61,20 +62,20 @@
                             <br>
     </script>
     <style>
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
         }
+    }
     </style>
 
     <title>Inicio</title>
@@ -93,7 +94,9 @@
                 <div class="jumbotron banner col-md-12">
                     <div class="container">
                         <h1 class="display-3 texto-banner">Tenemos los mejores inmuebles para ti</h1>
-                        <p class="texto-banner">Prestamos los servicios de Arriendos, para la comunidad universitaria de la UIS, además brindamos Asesoría Inmobiliaria y gestionamos el mantenimiento de los inmuebles </p>
+                        <p class="texto-banner">Prestamos los servicios de Arriendos, para la comunidad universitaria de
+                            la UIS, además brindamos Asesoría Inmobiliaria y gestionamos el mantenimiento de los
+                            inmuebles </p>
                         <p><a class="btn btn-primary btn-lg" href="#" role="button">Ver mas &raquo;</a></p>
                     </div>
                 </div>
@@ -143,14 +146,19 @@
                             <div class="col-md-2"></div>
                             <div class="col-md-8 contenidoPublicacion">
                                 <div class="divImagenPerfil">
-                                    <img src="imagenes/im_perfil.png" alt="foto de perfil" style="width: 100%; border-radius: 50%;">
+                                    <img src="imagenes/im_perfil.png" alt="foto de perfil"
+                                        style="width: 100%; border-radius: 50%;">
                                 </div>
                                 <div class="encabezadoPublicacion">
-                                    <span class="tituloPublicacion"><?PHP echo $publicacion['nombre']; ?></span></br>
-                                    <span class="subtituloPublicacion"><?PHP echo $publicacion['ubicacion']; ?></span></br>
+                                    <span class="tituloPublicacion">
+                                        <?PHP echo $publicacion['nombre']; ?></span></br>
+                                    <span class="subtituloPublicacion">
+                                        <?PHP echo $publicacion['ubicacion']; ?></span></br>
                                 </div>
                                 <div class="divPrecio">
-                                    <span class="tituloPublicacion" style="color:#4CAF50;font-size:25px;">$<?PHP echo $publicacion['precio']; ?></span> - <span class="subtituloPublicacion">
+                                    <span class="tituloPublicacion" style="color:#4CAF50;font-size:25px;">$
+                                        <?PHP echo $publicacion['precio']; ?></span> - <span
+                                        class="subtituloPublicacion">
                                         <?PHP
                                             if ($publicacion['negociable'] == '0') $negociable = 'No negociable';
                                             else $negociable = 'Negociable';
@@ -159,10 +167,16 @@
                                     </span>
                                 </div>
                                 <div class="imagenPublicacion">
-                                    <img <?PHP echo 'src=' . $publicacion['urlImagen']; ?> alt="Publicacion" style="width: 100%">
+                                    <img <?PHP echo 'src=' . $publicacion['urlImagen']; ?> alt="Publicacion"
+                                    style="width: 100%">
                                 </div>
                                 <div class="descripcionPublicacion">
-                                    <p><?PHP echo $publicacion['descripcion']; ?> &nbsp <button type="button" class="btn btn-primary" style="padding-top:1%;">Ver mas...</button></p>
+                                    <input id="idCliente" type="text" style="display:none" value=<?PHP echo
+                                        $publicacion['idCliente']?>>
+                                    <p>
+                                        <?PHP echo $publicacion['descripcion']; ?> &nbsp <button
+                                            onclick="ver_perfil_cliente(this)" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-primary"
+                                            style="padding-top:1%;">Ver mas...</button></p>
                                 </div>
                                 <div class="botonesPublicacion">
                                     <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
@@ -186,15 +200,79 @@
             <div class="col-md-1"></div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
     <footer class="footer mt-auto py-3 fondo">
         <div class="container">
             <p>&copy; 2019 | Grupo 5 - Ingenieria de Software I | Todos los derechos reservados</p>
         </div>
+
     </footer>
 
     <script src="jquery.min.js"></script>
-    <script src="jquery.tmpl.js"></script>
     <script src="funciones.js"></script>
+    <script src="jquery.tmpl.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">DUEÑO DEL INMUEBLE</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                idCliente: <span type="text" id="idCliente_modal"></span>
+                                <br><br>
+                            </div>
+                            <div class="col-6">
+                                nombre: <span type="text" id="nombre"></span>
+                                <br><br>
+                            </div>
+                            <div class="col-6">
+                                apellido: <span type="text" id="apellido"></span>
+                                <br><br>
+                            </div>
+                            <div class="col-6">
+                                telefono: <span type="text" id="telefono"></span>
+                                <br><br>
+                            </div>
+                            <div class="col-12"  style="text-align:center">
+                                correo: <span type="text" id="correo"></span>
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <!-- Optional JavaScript -->
 </body>
 

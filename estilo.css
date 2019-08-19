@@ -104,17 +104,12 @@
 
 
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
-html{
+#meh{
     height:100%;
     width:100%;     
     background: linear-gradient(to bottom, #29B3AE, #C5E5E9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#cosa{
-    height:100%;
-    width:100%;     
-    background: linear-gradient(to bottom, #29B3AE, #C5E5E9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
 
 .login-block{
     float:left;
