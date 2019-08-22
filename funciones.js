@@ -47,14 +47,18 @@ function ingresar() {
             data: datos,
             success: function (response) {
                 // response = jQuery.parseJSON(response);
-                if (response.conexion == false) {
-                    alert("Error en la conexion");
-                } else {
-                    if (response.consulta == false) {
-                        alert("El usuario no existe");
+                if (typeof  response.conexion != "undefined" && typeof response.consulta != "undefined") {
+                    if (response.conexion == false) {
+                        alert("Error en la conexion");
                     } else {
-                        location.href = "index.php";
+                        if (response.consulta == false) {
+                            alert("El usuario no existe");
+                        } else {
+                            location.href = "index.php";
+                        }
                     }
+                }else{
+                    alert("Error del lado del servidor");
                 }
             },
             error: function (data) {
@@ -129,18 +133,17 @@ function publicar_oferta() {
             success: function (response) {
 
                 // response = jQuery.parseJSON(response);
-                if (response.conexion && response.consulta) {
+                if (typeof  response.conexion != "undefined" && typeof response.consulta != "undefined") {
                     if (response.conexion == false) {
                         alert("Error en la conexion");
                     } else {
                         if (response.consulta == false) {
-                            alert("Error, es posible que hallas excedido el limite de publicaciones");
+                            alert("Error, es posible que hallas excedido el limite de publicaciones activas");
                         } else {
                             alert("Publicacion creada exitosamente");
                         }
                     }
                 } else {
-                    console.log(response);
                     alert("Error del lado del servidor");
 
                 }
