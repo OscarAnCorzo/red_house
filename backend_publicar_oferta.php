@@ -3,7 +3,7 @@
     require_once 'conexion_bd.php';
 ?>
 <?PHP 
-    $respuesta=array();
+    $respuesta=array(); 
 
     extract($_POST);
 
@@ -25,11 +25,10 @@
         $respuesta["conexion"]=TRUE;
         // $consulta="SELECT *FROM cliente WHERE idCliente='".$idCliente."' AND contrasena='".$contrasena."'";
 
-        $numero_publicaciones=mysqli_num_rows(mysqli_query($conexion,"SELECT *FROM publicacion WHERE idCliente='".$idCliente."'"));
-        if($numero_publicaciones<=3){ //SI EL NUMERO DE PUBLICACIONES NO EXCEDE EL LIMITE
+        $numero_publicaciones=mysqli_num_rows(mysqli_query($conexion,"SELECT *FROM publicacion WHERE idCliente='".$idCliente."' AND estado='1'"));
+        if($estado=="0"){
             $consulta="INSERT INTO publicacion (nombre,ubicacion,precio,descripcion,fechaPublicada,estado,negociable,tipoInmueble,urlImagen,idCliente)
             VALUES ('".$nombre."','".$ubicacion."','".$precio."','".$descripcion."','".$fechaPublicada."','".$estado."','".$negociable."','".$tipoInmueble."','".$ruta."','".$idCliente."')";
-            $respuesta["asdasd"]=$consulta;
 
             $result=mysqli_query($conexion,$consulta);
             if($result){
@@ -37,8 +36,21 @@
             }else{
                 $respuesta["consulta"]=FALSE;
             }
-        }else{
-            $respuesta["consulta"]=FALSE;
+        }
+        if($estado=="1"){
+            if($numero_publicaciones<=4){ //SI EL NUMERO DE PUBLICACIONES NO EXCEDE EL LIMITE
+                $consulta="INSERT INTO publicacion (nombre,ubicacion,precio,descripcion,fechaPublicada,estado,negociable,tipoInmueble,urlImagen,idCliente)
+                VALUES ('".$nombre."','".$ubicacion."','".$precio."','".$descripcion."','".$fechaPublicada."','".$estado."','".$negociable."','".$tipoInmueble."','".$ruta."','".$idCliente."')";
+    
+                $result=mysqli_query($conexion,$consulta);
+                if($result){
+                    $respuesta["consulta"]=TRUE;
+                }else{
+                    $respuesta["consulta"]=FALSE;
+                }
+            }else{
+                $respuesta["consulta"]=FALSE;
+            }
         }
     }else{
         $respuesta["conexion"]=FALSE;
