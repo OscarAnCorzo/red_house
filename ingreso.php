@@ -27,7 +27,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
-
+    <script src="http://pajhome.org.uk/crypt/md5/2.2/md5-min.js"></script>
     <section class="login-block">
         <div class="container cc">
             <div class="row">

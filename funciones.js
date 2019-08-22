@@ -34,7 +34,7 @@ function registrarse() {
 function ingresar() {
     var datos = {
         idCliente: document.getElementById("idCliente").value,
-        contrasena: document.getElementById("contrasena").value
+        contrasena: hex_md5(document.getElementById("contrasena").value)
     };
     var expresion = /^\s*$/;
     if (datos.idCliente == "" || datos.contrasena == "" || expresion.test(datos.idCliente) || expresion.test(datos.contrasena)) {
