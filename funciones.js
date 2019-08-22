@@ -93,16 +93,27 @@ $('#buscar').on("click", function () {
 });
 
 function publicar_oferta() {
-    var datos = {
-        nombre: document.getElementById("nombre").value,
-        ubicacion: document.getElementById("ubicacion").value,
-        precio: document.getElementById("precio").value,
-        descripcion: document.getElementById("descripcion").value,
-        estado: document.getElementById("estado").value,
-        negociable: document.getElementById("negociable").value,
-        tipoInmueble: document.getElementById("tipoInmueble").value,
-        urlImagen: document.getElementById("urlImagen").value
-    };
+   
+    var datos = new FormData();
+    datos.append("nombre",document.getElementById("nombre").value);
+    datos.append("ubicacion",document.getElementById("ubicacion").value);
+    datos.append("precio",document.getElementById("precio").value);
+    datos.append("descripcion",document.getElementById("descripcion").value);
+    datos.append("estado",document.getElementById("estado").value);
+    datos.append("negociable",document.getElementById("negociable").value);
+    datos.append("tipoInmueble",document.getElementById("tipoInmueble").value);
+    datos.append("imagen",document.getElementById("urlImagen").files[0]);
+
+    // var datos = {
+    //     nombre: document.getElementById("nombre").value,
+    //     ubicacion: document.getElementById("ubicacion").value,
+    //     precio: document.getElementById("precio").value,
+    //     descripcion: document.getElementById("descripcion").value,
+    //     estado: document.getElementById("estado").value,
+    //     negociable: document.getElementById("negociable").value,
+    //     tipoInmueble: document.getElementById("tipoInmueble").value,
+    //     urlImagen: document.getElementById("urlImagen").value
+    // };
     var expresion = /^\s*$/;
     if (datos.nombre == "" || datos.ubicacion == "" || datos.precio == "" || datos.descripcion == "" || datos.estado == "" || datos.negociable == "" || datos.tipoInmueble == "" || datos.urlImagen == ""
         || expresion.test(datos.nombre) || expresion.test(datos.ubicacion) || expresion.test(datos.precio) || expresion.test(datos.descripcion) || expresion.test(datos.estado) || expresion.test(datos.negociable) || expresion.test(datos.tipoInmueble) || expresion.test(datos.urlImagen)) {
@@ -113,6 +124,8 @@ function publicar_oferta() {
             url: "backend_publicar_oferta.php",
             type: "POST",
             data: datos,
+            processData: false,
+            contentType: false,
             success: function (response) {
 
                 // response = jQuery.parseJSON(response);
@@ -127,11 +140,13 @@ function publicar_oferta() {
                         }
                     }
                 } else {
+                    console.log(response);
                     alert("Error del lado del servidor");
 
                 }
             },
             error: function (data) {
+                console.log(data);
                 alert("Error interno en el servidor");
             }
 

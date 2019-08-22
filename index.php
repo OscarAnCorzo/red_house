@@ -82,8 +82,13 @@
 </head>
 
 <body>
-    <?PHP
-    encabezado();
+    <?PHP 
+    if (!isset($_SESSION['identificacion']) || !isset($_SESSION['contrasena'])){ 
+        session_destroy();
+        encabezado();
+    }else{
+        encabezadoCliente();
+    }
     ?>
 
     <div class="container-fluid">
