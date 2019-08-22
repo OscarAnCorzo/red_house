@@ -97,7 +97,7 @@
             <div class="col-md-10 fondo">
                 <br>
                 <div class="jumbotron banner col-md-12">
-                    <div class="container">
+                    <div id="e" class="container">
                         <h1 class="display-3 texto-banner">Tenemos los mejores inmuebles para ti</h1>
                         <p class="texto-banner">Prestamos los servicios de Arriendos, para la comunidad universitaria de
                             la UIS, además brindamos Asesoría Inmobiliaria y gestionamos el mantenimiento de los
