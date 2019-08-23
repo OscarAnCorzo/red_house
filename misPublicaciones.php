@@ -7,7 +7,7 @@
     session_start();
     include("funciones.php");
     $conexion = conectar();
-    $sql = "select * from publicacion";
+    $sql = "select * from publicacion where estado = '1'";
 
     $r = mysqli_query($conexion, $sql);
     //$publicaciones = mysqli_fetch_array($r);
@@ -47,7 +47,7 @@
                                         <img src=${urlImagen} alt="Publicacion" style="width: 100%">
                                     </div>
                                     <div class="descripcionPublicacion">
-                                        <p>${descripcion} &nbsp <button type="button" class="btn btn-primary"style="padding-top:1%;">Ver mas...</button></p>
+                                        <p>${descripcion}</p>
                                     </div>
                                     <div class="botonesPublicacion">
                                         <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>
@@ -78,7 +78,7 @@
     }
     </style>
 
-    <title>Inicio</title>
+    <title>Mis  Publicaciones</title>
 </head>
 
 <body>
@@ -86,8 +86,10 @@
     if (!isset($_SESSION['identificacion']) || !isset($_SESSION['contrasena'])){ 
         session_destroy();
         encabezado();
+        $sesion = FALSE;
     }else{
         encabezadoCliente();
+        $sesion = TRUE;
     }
     ?>
 
@@ -96,50 +98,44 @@
             <div class="col-md-1"></div>
             <div class="col-md-10 fondo">
                 <br>
-                <div class="jumbotron banner col-md-12">
-                    <div id="e" class="container">
-                        <h1 class="display-3 texto-banner">Tenemos los mejores inmuebles para ti</h1>
-                        <p class="texto-banner">Prestamos los servicios de Arriendos, para la comunidad universitaria de
-                            la UIS, además brindamos Asesoría Inmobiliaria y facilitamos la comunicación con los ofertantes. </p>
-                    </div>
+                <div id="uno-cuenta" class="contenedor">
+                <div id="contenido" class="ee">
+                    <p id="letra" >
+                        <span style="font-size: 50px;"><br><b>¡Hola <?PHP echo $_SESSION['nombre'];?>!</b></span>
+                        <br>
+                        <span style="font-size: 35px;font-family: Arial, Helvetica, sans-serif;">
+                            <br><b>Aqui encontraras tus publicaciones activas e inactivas,<br>
+                            ademas podras editarlas cuando quieras.<br>
+                            <br>
+                            </b>
+                        </span>
+                    </p>
+                    <a class="btn btn-success enlaton2 btn-lg bot" style="    background-color: #1fc8db;
+        background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+        color: white;
+        opacity: 0.95;" href="index.php">Ir a Inicio</a>
                 </div>
-
+</div>
                 <hr>
 
                 <div class="container">
-                    <h4 class="row col-md-8 fondo"> Buscar por:</h4>
                     <div class="row">
                         <div class="col-md-1"></div>
-                        <div class="col-md-2">
-                            <label> Tipo de inmueble </label>
-                            <select id="tipo" class="form-control">
-                                <option>Cualquiera</option>
-                                <option value="apartamento">Apartamento</option>
-                                <option value="habitacion">Habitación</option>
-                            </select>
+                        <div clas="col-md-10" style="width:100%;">
+                            <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <span class="nav-link active" id="activas" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true">Activas</span>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="nav-link" id="inactivas" data-toggle="tab" role="tab" aria-controls="contact" aria-selected="false">Inactivas</span>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2">
-                            <label> Valor minimo </label>
-                            <input id="val_min" type="number" name="val_min" class="form-control">
-                        </div>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-2">
-                            <label> Valor maximo</label>
-                            <input id="val_max" type="number" name="val_max" class="form-control">
-                        </div>
+                        <br>
+                        
                         <div class="col-md-1"></div>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="btn btn-success botonDetalles btn-block" role="button" id="buscar">Buscar</div>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <br>
-                    <hr>
 
                     <div id="lista_publicaciones">
                         <?PHP
@@ -163,10 +159,7 @@
                                         <?PHP echo $publicacion['precio']; ?></span> - <span
                                         class="subtituloPublicacion">
                                         <?PHP
-                                            if ($publicacion['negociable'] == '0') $negociable = 'No negociable';
-                                            else $negociable = 'Negociable';
-
-                                            echo $negociable; ?>
+                                            echo $publicacion['negociable']; ?>
                                     </span>
                                 </div>
                                 <div class="imagenPublicacion">
@@ -177,9 +170,7 @@
                                     <input id="idCliente" type="text" style="display:none" value=<?PHP echo
                                         $publicacion['idCliente']?>>
                                     <p>
-                                        <?PHP echo $publicacion['descripcion']; ?> &nbsp <button
-                                            onclick="ver_perfil_cliente(this)" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-primary"
-                                            style="padding-top:1%;">Ver mas...</button></p>
+                                        <?PHP echo $publicacion['descripcion']; ?></p>
                                 </div>
                                 <div class="botonesPublicacion">
                                     <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>

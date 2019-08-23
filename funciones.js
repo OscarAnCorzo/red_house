@@ -196,3 +196,48 @@ function ver_perfil_cliente(e) {
     });
 }
 
+$('#activas').on("click", function () {
+    $('#lista_publicaciones').html("");
+    console.log('activas');
+    var dato = {
+        operacion: 'activas'
+    };
+    $.ajax({
+        url: "backend_mis_publicaciones.php",
+        type: "post",
+        data: dato,
+        success: function (response) {
+            console.log(response);
+            for (var i = 0; i < Object.keys(response.publicaciones).length; i++) {
+                $('#plantilla').tmpl(response.publicaciones[i]).appendTo('#lista_publicaciones');
+            }
+        },
+        error: function (data) {
+            alert("Error interno en el servidor");
+        }
+    });
+
+
+});
+
+$('#inactivas').on("click", function () {
+    $('#lista_publicaciones').html("");
+    console.log('activas');
+    var dato = {
+        operacion: 'inactivas'
+    };
+    $.ajax({
+        url: "backend_mis_publicaciones.php",
+        type: "post",
+        data: dato,
+        success: function (response) {
+            console.log(response);
+            for (var i = 0; i < Object.keys(response.publicaciones).length; i++) {
+                $('#plantilla').tmpl(response.publicaciones[i]).appendTo('#lista_publicaciones');
+            }
+        },
+        error: function (data) {
+            alert("Error interno en el servidor");
+        }
+    });
+});

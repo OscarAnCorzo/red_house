@@ -21,6 +21,9 @@
             session_start();
             $_SESSION['identificacion']=$idCliente;
             $_SESSION['contrasena']=$contrasena;
+            while($p = mysqli_fetch_assoc($result)){
+                $_SESSION['nombre'] = $p['nombre'];
+            } 
         }else{
             $respuesta["consulta"]=FALSE;
         }

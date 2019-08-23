@@ -7,7 +7,7 @@
     session_start();
     include("funciones.php");
     $conexion = conectar();
-    $sql = "select * from publicacion";
+    $sql = "select * from publicacion limit 3";
 
     $r = mysqli_query($conexion, $sql);
     //$publicaciones = mysqli_fetch_array($r);
@@ -86,8 +86,10 @@
     if (!isset($_SESSION['identificacion']) || !isset($_SESSION['contrasena'])){ 
         session_destroy();
         encabezado();
+        $sesion = FALSE;
     }else{
         encabezadoCliente();
+        $sesion = TRUE;
     }
     ?>
 
@@ -97,7 +99,7 @@
             <div class="col-md-10 fondo">
                 <br>
                 <div class="jumbotron banner col-md-12">
-                    <div id="e" class="container">
+                    <div class="e" class="container">
                         <h1 class="display-3 texto-banner">Tenemos los mejores inmuebles para ti</h1>
                         <p class="texto-banner">Prestamos los servicios de Arriendos, para la comunidad universitaria de
                             la UIS, además brindamos Asesoría Inmobiliaria y facilitamos la comunicación con los ofertantes. </p>
@@ -134,7 +136,10 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
-                            <div class="btn btn-success botonDetalles btn-block" role="button" id="buscar">Buscar</div>
+                        <?PHP
+                            if($sesion == TRUE) echo'<div class="btn btn-success botonDetalles btn-block" role="button" id="buscar">Buscar</div>';
+                            else echo'<div class="btn btn-success botonDetalles btn-block disabled" role="button" id="buscar">Buscar</div>';
+                        ?>
                         </div>
                         <div class="col-md-2"></div>
                     </div>
@@ -163,10 +168,7 @@
                                         <?PHP echo $publicacion['precio']; ?></span> - <span
                                         class="subtituloPublicacion">
                                         <?PHP
-                                            if ($publicacion['negociable'] == '0') $negociable = 'No negociable';
-                                            else $negociable = 'Negociable';
-
-                                            echo $negociable; ?>
+                                            echo $publicacion['negociable']; ?>
                                     </span>
                                 </div>
                                 <div class="imagenPublicacion">
@@ -179,7 +181,7 @@
                                     <p>
                                         <?PHP echo $publicacion['descripcion']; ?> &nbsp <button
                                             onclick="ver_perfil_cliente(this)" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-primary"
-                                            style="padding-top:1%;">Ver mas...</button></p>
+                                            style="padding-top:1%;">Ver Contacto</button></p>
                                 </div>
                                 <div class="botonesPublicacion">
                                     <span class="botonPublicacion"><i class="fas fa-star"></i> 4.5</span>

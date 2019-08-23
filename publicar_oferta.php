@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ingreso</title>
+    <title>Publica tu Inmueble</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <script src="jquery-3.4.1.min.js"></script>
     <script src="funciones.js"></script>

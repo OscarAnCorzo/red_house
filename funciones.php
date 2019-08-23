@@ -56,7 +56,7 @@
                     <a class="nav-link letra_enca" href="index.php" >Inicio<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active ">
-                    <a class="nav-link letra_enca" href="miPublicacion.php">Mis Publicaciones</a>
+                    <a class="nav-link letra_enca" href="misPublicaciones.php">Mis Publicaciones</a>
                 </li>
                 <li class="nav-item active ">
                     <a class="nav-link letra_enca" href="publicar_oferta.php">Publicar</a>

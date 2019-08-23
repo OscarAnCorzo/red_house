@@ -16,9 +16,10 @@
 
 }
 
-#e{
-    background: rgba(150, 149, 149, 0.7);
+.e{
+    background: rgba(83, 83, 83, 0.4);
     padding: 3%;
+    color: white
 }
 
 /*
@@ -201,6 +202,23 @@ body{
     display: block;
     outline: none;
 }
+
+#uno-cuenta{
+    width:100%;
+    height: 490px;
+    background-image:url('imagenes/banner2.jpg');
+    background-size: cover;
+    text-align: center;
+}
+
+.ee{
+    width: 100%;
+    height: 490px;
+    background: rgba(83, 83, 83, 0.4);
+    padding: 3%;
+    color: white
+}
+
 
 @media screen and (max-width: 800px){
     #advanced-search-form .form-group{
