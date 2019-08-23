@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-08-2019 a las 16:19:42
+-- Tiempo de generación: 23-08-2019 a las 16:22:42
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -28,7 +28,6 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `calificacion`
 --
 
-
 CREATE TABLE `cliente` (
   `idCliente` varchar(20) NOT NULL,
   `nombre` varchar(20) DEFAULT NULL,
@@ -39,7 +38,6 @@ CREATE TABLE `cliente` (
   `fechaCreado` datetime DEFAULT NULL,
   `fechaActualizado` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 CREATE TABLE `publicacion` (
   `idPublicacion` int(11) NOT NULL,
@@ -55,7 +53,6 @@ CREATE TABLE `publicacion` (
   `idCliente` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
 CREATE TABLE `calificacion` (
   `idCalificacion` int(11) NOT NULL,
   `valor` int(11) DEFAULT NULL,
@@ -70,33 +67,25 @@ CREATE TABLE `calificacion` (
 --
 
 
+
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
 INSERT INTO `cliente` (`idCliente`, `nombre`, `apellido`, `telefono`, `correo`, `contrasena`, `fechaCreado`, `fechaActualizado`) VALUES
-('00000001', 'admin', 'admin', '1212121', 'admin', 'admin', '2019-06-04 00:00:00', '2019-08-01 00:00:00'),
-('10000001', 'diego', 'villamizar', '6533222', 'diego@hotmail.com', '123456', '2019-08-09 00:00:00', '2019-08-22 00:00:00'),
-('10000002', 'juan', 'perez', '67333589', 'juan@gmail.com', '123456', '2019-08-09 00:00:00', '2019-08-09 09:11:29'),
-('10000003', 'juliana', 'suarez', '30047552', 'juliana@gmail.com', '123456', '2019-08-09 00:00:00', '2019-08-09 00:00:00'),
-('10000004', 'luisa', 'sarmiento', '315500245', 'luisa@hotmail.com', '123456', '2019-08-09 00:00:00', '2019-08-09 00:00:00'),
-('10000005', 'oscar', 'corzo', '65844223', 'oscar@gmail.com', '123456', '2019-08-09 10:11:18', '2019-08-09 08:06:33'),
-('10000007', 'yesenia', 'gomez', '65523344', 'yesenia@gmail.com', '123456', '2019-08-09 00:00:00', '2019-08-09 00:00:00');
+('00000001', 'admin', 'admin', '1212121', 'admin', '21232f297a57a5a743894a0e4a801fc3', '2019-06-04 00:00:00', '2019-08-01 00:00:00'),
+('10000001', 'diego', 'villamizar', '6533222', 'diego@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-08-09 00:00:00', '2019-08-22 00:00:00'),
+('10000002', 'juan', 'perez', '67333589', 'juan@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-08-09 00:00:00', '2019-08-09 09:11:29'),
+('10000003', 'juliana', 'suarez', '30047552', 'juliana@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-08-09 00:00:00', '2019-08-09 00:00:00'),
+('10000004', 'luisa', 'sarmiento', '315500245', 'luisa@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-08-09 00:00:00', '2019-08-09 00:00:00'),
+('10000005', 'oscar', 'corzo', '65844223', 'oscar@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-08-09 10:11:18', '2019-08-09 08:06:33'),
+('10000007', 'yesenia', 'gomez', '65523344', 'yesenia@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2019-08-09 00:00:00', '2019-08-09 00:00:00');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `comentario`
 --
-
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `publicacion`
---
-
 
 CREATE TABLE `comentario` (
   `idComentario` int(11) NOT NULL,
@@ -105,6 +94,15 @@ CREATE TABLE `comentario` (
   `idPublicacion` int(11) DEFAULT NULL,
   `idCliente` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `publicacion`
+--
+
+
+
 --
 -- Volcado de datos para la tabla `publicacion`
 --
