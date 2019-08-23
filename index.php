@@ -138,7 +138,7 @@
                         <div class="col-md-8">
                         <?PHP
                             if($sesion == TRUE) echo'<div class="btn btn-success botonDetalles btn-block" role="button" id="buscar">Buscar</div>';
-                            else echo'<div class="btn btn-success botonDetalles btn-block disabled" role="button" id="buscar">Buscar</div>';
+                            else echo'<div class="btn btn-success botonDetalles btn-block disabled" role="button" id="no_buscar">Buscar</div>';
                         ?>
                         </div>
                         <div class="col-md-2"></div>
