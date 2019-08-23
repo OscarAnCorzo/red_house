@@ -38,6 +38,11 @@
                                         <span class="subtituloPublicacion">${ubicacion}</span></br>
                                     </div>
                                     <div class="divPrecio">
+                                    <div style="width:100%;">
+                                            <button type="button" class="btn btn-secondary btm-sm" style="position: relative; float:right; padding:1%; margin-right:10px;">Activo</button>
+                                            
+                                            <button type="button" class="btn btn-secondary btm-sm" style="position: relative; float:right; padding:1%; margin-right:10px;">Inactivo</button>
+                                        </div>
                                         <span class="tituloPublicacion" style="color:#4CAF50;font-size:25px;">$${precio}</span> - <span class="subtituloPublicacion">
                                         
                                         ${negociable}
