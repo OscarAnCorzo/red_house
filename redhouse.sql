@@ -24,6 +24,34 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+
+CREATE TABLE `cliente` (
+  `idCliente` varchar(20) NOT NULL,
+  `nombre` varchar(20) DEFAULT NULL,
+  `apellido` varchar(20) DEFAULT NULL,
+  `telefono` varchar(10) DEFAULT NULL,
+  `correo` varchar(30) DEFAULT NULL,
+  `contrasena` varchar(160) DEFAULT NULL,
+  `fechaCreado` datetime DEFAULT NULL,
+  `fechaActualizado` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+CREATE TABLE `publicacion` (
+  `idPublicacion` int(11) NOT NULL,
+  `nombre` varchar(30) DEFAULT NULL,
+  `ubicacion` varchar(20) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  `descripcion` varchar(150) DEFAULT NULL,
+  `fechaPublicada` datetime DEFAULT NULL,
+  `estado` char(1) DEFAULT NULL,
+  `negociable` char(16) DEFAULT NULL,
+  `tipoInmueble` varchar(20) DEFAULT NULL,
+  `urlImagen` varchar(100) DEFAULT NULL,
+  `idCliente` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Estructura de tabla para la tabla `calificacion`
 --
@@ -41,16 +69,6 @@ CREATE TABLE `calificacion` (
 -- Estructura de tabla para la tabla `cliente`
 --
 
-CREATE TABLE `cliente` (
-  `idCliente` varchar(20) NOT NULL,
-  `nombre` varchar(20) DEFAULT NULL,
-  `apellido` varchar(20) DEFAULT NULL,
-  `telefono` varchar(10) DEFAULT NULL,
-  `correo` varchar(30) DEFAULT NULL,
-  `contrasena` varchar(160) DEFAULT NULL,
-  `fechaCreado` datetime DEFAULT NULL,
-  `fechaActualizado` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cliente`
@@ -71,6 +89,14 @@ INSERT INTO `cliente` (`idCliente`, `nombre`, `apellido`, `telefono`, `correo`, 
 -- Estructura de tabla para la tabla `comentario`
 --
 
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `publicacion`
+--
+
+
 CREATE TABLE `comentario` (
   `idComentario` int(11) NOT NULL,
   `contenido` varchar(200) DEFAULT NULL,
@@ -79,25 +105,6 @@ CREATE TABLE `comentario` (
   `idCliente` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `publicacion`
---
-
-CREATE TABLE `publicacion` (
-  `idPublicacion` int(11) NOT NULL,
-  `nombre` varchar(30) DEFAULT NULL,
-  `ubicacion` varchar(20) DEFAULT NULL,
-  `precio` int(11) DEFAULT NULL,
-  `descripcion` varchar(150) DEFAULT NULL,
-  `fechaPublicada` datetime DEFAULT NULL,
-  `estado` char(1) DEFAULT NULL,
-  `negociable` char(16) DEFAULT NULL,
-  `tipoInmueble` varchar(20) DEFAULT NULL,
-  `urlImagen` varchar(100) DEFAULT NULL,
-  `idCliente` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `publicacion`

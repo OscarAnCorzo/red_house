@@ -28,12 +28,6 @@
                 <li class="nav-item active" >
                     <a class="nav-link letra_enca" href="index.php" >Inicio<span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item active ">
-                    <a class="nav-link letra_enca" href="#">Servicios</a>
-                </li>
-                <li class="nav-item active ">
-                    <a class="nav-link letra_enca" href="#">Nosotros</a>
-                </li>
             </ul>
         </div>
         <ul class="nav justify-content-end" >
