@@ -7,7 +7,13 @@
     session_start();
     include("funciones.php");
     $conexion = conectar();
-    $sql = "select * from publicacion limit 3";
+
+    if (isset($_SESSION['identificacion']) || isset($_SESSION['contrasena'])){ 
+        $sql = "select * from publicacion";
+    }else{
+        $sql = "select * from publicacion limit 3";
+    }
+    
 
     $r = mysqli_query($conexion, $sql);
     //$publicaciones = mysqli_fetch_array($r);
