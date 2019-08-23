@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-08-2019 a las 16:10:03
+-- Tiempo de generación: 23-08-2019 a las 16:19:42
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -24,6 +24,10 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+--
+-- Estructura de tabla para la tabla `calificacion`
+--
+
 
 CREATE TABLE `cliente` (
   `idCliente` varchar(20) NOT NULL,
@@ -35,7 +39,6 @@ CREATE TABLE `cliente` (
   `fechaCreado` datetime DEFAULT NULL,
   `fechaActualizado` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 CREATE TABLE `publicacion` (
@@ -52,9 +55,6 @@ CREATE TABLE `publicacion` (
   `idCliente` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Estructura de tabla para la tabla `calificacion`
---
 
 CREATE TABLE `calificacion` (
   `idCalificacion` int(11) NOT NULL,
@@ -90,6 +90,7 @@ INSERT INTO `cliente` (`idCliente`, `nombre`, `apellido`, `telefono`, `correo`, 
 --
 
 
+
 -- --------------------------------------------------------
 
 --
@@ -104,18 +105,16 @@ CREATE TABLE `comentario` (
   `idPublicacion` int(11) DEFAULT NULL,
   `idCliente` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
 --
 -- Volcado de datos para la tabla `publicacion`
 --
 
 INSERT INTO `publicacion` (`idPublicacion`, `nombre`, `ubicacion`, `precio`, `descripcion`, `fechaPublicada`, `estado`, `negociable`, `tipoInmueble`, `urlImagen`, `idCliente`) VALUES
-(101, 'apartamento en arriendo', 'cr27 #14-55', 720000, 'se arrienda apartamento en la torre Babilonia, con baño, cocina y balcón privados, dos habitaciones.', '2019-07-25 00:00:00', '1', 'negociable', 'apartamento', 'imagenes/i1.jpg', '10000005'),
+(101, 'apartamento en arriendo', 'cr27 #14-55', 720000, 'se arrienda apartamento en la torre Babilonia, cocina y balcon privados, dos habitaciones.', '2019-07-25 00:00:00', '1', 'negociable', 'apartamento', 'imagenes/i1.jpg', '10000005'),
 (104, 'super apartamento en arriendo', 'cr25 #13-55', 325000, 'se arrienda apartamento en el barrio san alonso', '2019-07-25 00:00:00', '1', 'negociable', 'apartamento', 'imagenes/i1.jpg', '10000003'),
-(111, 'se arrienda habitación', 'cra 24 #11-65', 200000, 'habitacion no amoblada, baño privado, ambiente familiar', '2019-08-01 00:00:00', '1', 'negociable', 'habitacion', 'imagenes/i3.jpg', '10000004'),
+(111, 'se arrienda habitación', 'cra 24 #11-65', 200000, 'habitacion no amoblada,  ambiente familiar', '2019-08-01 00:00:00', '1', 'negociable', 'habitacion', 'imagenes/i3.jpg', '10000004'),
 (222, 'Se arrienda apartamento', 'cll 13 #09-52', 540000, 'apartamento en segundo piso, tres habitaciones, dos baños, cocina y solar.', '2019-06-12 00:00:00', '1', 'no negociable', 'apartamento', 'imagenes/i2.jpg', '10000002'),
-(333, 'habitación amoblada', 'cra 27 #11-06', 300000, 'habitación amoblada cerca a la uis, ambiente no familiar', '2019-08-09 00:00:00', '1', 'negociable', 'habitacion', 'imagenes/i1.jpg', '10000001');
+(333, 'habitación amoblada', 'cra 27 #11-06', 300000, 'habitacion amoblada cerca a la uis, ambiente no familiar', '2019-08-09 00:00:00', '1', 'negociable', 'habitacion', 'imagenes/i1.jpg', '10000001');
 
 --
 -- Índices para tablas volcadas
